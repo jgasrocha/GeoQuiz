@@ -12,7 +12,14 @@
         <span class="btn-text">Responder</span>
         <span class="btn-icon">🚀</span>
       </button>
+
+      <button @click="$emit('skip')" class="btn-skip">
+        <span class="btn-text">Pular</span>
+        <span class="btn-icon">⏭️</span>
+      </button>
+
     </div>
+
 
     <div v-if="feedback" :class="['feedback', isCorrect ? 'correct' : 'wrong']">
       <div class="feedback-icon">
@@ -40,7 +47,7 @@ export default {
     feedback: String,
     isCorrect: Boolean
   },
-  emits: ['update:modelValue', 'submit'],
+  emits: ['update:modelValue', 'submit', 'skip'],
   methods: {
     submit() {
       this.$emit('submit');
@@ -80,6 +87,35 @@ export default {
   max-width: 90vw;
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.btn-skip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #888, #555);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.btn-skip:hover {
+  background: linear-gradient(135deg, #777, #444);
+  transform: translateY(-2px);
+}
+
+.btn-skip:active {
+  transform: translateY(0);
 }
 
 .question-header {

@@ -19,7 +19,7 @@
 
     <!-- Question Box -->
     <QuestionBox v-if="showQuestion && currentCountry" v-model="userAnswer" :country-name="currentCountry.pt"
-      :feedback="feedback" :is-correct="isCorrect" @submit="checkAnswer" ref="questionBox" />
+      :feedback="feedback" :is-correct="isCorrect" @submit="checkAnswer" @skip="goToNextQuestion" ref="questionBox" />
 
     <!-- Loading State -->
     <div v-if="!mapReady" class="loading-container">
