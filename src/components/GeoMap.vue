@@ -179,7 +179,7 @@ export default {
         this.isCorrect = true;
         setTimeout(() => this.goToNextQuestion(), 1500);
       } else {
-        this.feedback = `❌ Incorreto! A capital correta é ${this.currentCountry.capital}.`;
+        this.feedback = `Incorreto! A capital correta é ${this.currentCountry.capital}.`;
         this.isCorrect = false;
         this.userAnswer = '';
 
